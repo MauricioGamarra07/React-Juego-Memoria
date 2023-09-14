@@ -1,13 +1,66 @@
+let cardMostradas = 0;
+let arrayDes = [];
+let cardsVolteadas = [];
+let arrayIds = [];
 
-let arrayId = [];
-let names = [];
-let count = 0;
+const obj = {
+    1: "bx bx-coffee",
+    2: "bx bx-code",
+    3: "bx bxl-discord-alt",
+    4: "bx bx-headphone",
+    5: "bx bx-git-branch",
+    6: "bx bxl-react",
+    7: "bx bxl-nodejs",
+    8: "bx bxl-git",
+    9: "bx bxl-github",
+    10: "bx bxl-javascript"
+}
 
-let aciertos = 0;
-let faltantes = 10;
+export function desordenarArray() {
 
-const numAciertos = document.querySelector(".num-aciertos");
-const numFaltantes = document.querySelector(".num-faltantes");
+    let arr1 = Object.values(obj);
+    let arr2 = Object.values(obj);
+    let array = arr1.concat(arr2);
+
+    arrayDes = array.sort(()=>{return Math.random()-0.5});
+
+    /* console.log(arrayDes); */
+}
+
+
+export function mostrarIcono(e) {
+    cardMostradas += 1
+    let id = e.target.id;
+
+    arrayIds.push(id)
+    cardsVolteadas.push(arrayDes[id]);
+    /* console.log(cardsVolteadas) */
+
+    e.target.innerHTML = `<span class="${arrayDes[id]}"></span>`
+
+    if(cardMostradas == 2){
+        analizarCards(cardsVolteadas, arrayIds)
+        cardMostradas = 0;
+        cardsVolteadas = [];
+        arrayIds = [];
+    }
+}
+
+function analizarCards(cardsVolteadas, arrayIds){
+
+    let elem1 = document.getElementById(`${arrayIds[0]}`);
+    let elem2 = document.getElementById(`${arrayIds[1]}`);
+
+    if (cardsVolteadas[0] == cardsVolteadas[1]){
+        elem1.style.backgroundColor = "green";
+        elem2.style.backgroundColor = "green";
+    }else{
+        elem1.style.backgroundColor = "red";
+        elem2.style.backgroundColor = "red";
+    }
+}
+
+
 
 export function girarCard(card) {
     /* console.log(card) */
