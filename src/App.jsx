@@ -12,6 +12,29 @@ function App() {
   return (
     <div className="App">
       {/* <button onClick={()=>{traerDatos()}}>Click aqui</button> */}
+
+      <section className="modal">
+        <div className="cont-modal">
+          <h1 className="text-warning text-center">Victoria 🏆</h1>
+          <i className="bx bxs-x-circle bx-md text-danger" id="boton-cerrar"></i>
+          <p className='msj-modal'>Felicitaciones, usted ha ganado la partida en menos de 2 minutos. Si desea volver a jugar haga click en el botón ⬇️</p>
+          <div className="pie-modal">
+            <button className="btn btn-success" id="procesar">Volver a jugar</button>
+          </div>
+        </div>
+      </section>
+
+      <section className="modal-der">
+        <div className="cont-modal">
+          <h1 className="text-secondary text-center">Se agotó el tiempo 😓</h1>
+          <i className="bx bxs-x-circle bx-md text-danger" id="boton-cerrar"></i>
+          <p className='msj-modal-der'>Esta vez no pudiste ganar, pero lo lograrás la otra vez. Inténtalo de nuevo ⬇️</p>
+          <div className="pie-modal">
+            <button className="btn btn-success" id="procesar">Volver a jugar</button>
+          </div>
+        </div>
+      </section>
+
       <div className="contenedor">
         <table>
           <tbody>
